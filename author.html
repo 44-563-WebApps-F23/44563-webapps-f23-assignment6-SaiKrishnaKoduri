@@ -15,7 +15,7 @@
     <label for="form1_guess">Guess the author </label>
     <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br><br>
 
-    <input type="button" onclick="checkAuthor()" value="Check the guess">
+    <input type="button" id="bonusCount" onclick="checkAuthor()" value="Check the guess">
     <p id="result">Good: 0 | Oops: 0</p>
 </form>
 <script> 
@@ -33,9 +33,15 @@ function checkAuthor(){
         oops++
         alert("Sorry")
     }
+    if (oops > 6) {
+        document.getElementById("bonusCount").onclick = bonus;
+    }
     let resultElement = document.getElementById("result");
     resultElement.innerHTML = "Good: " + good + " | Oops: " + oops;
 }
+function bonus(){
+        alert("Sorry, ran out of guesses");
+    }
 </script>
 <div id="image-container" style="padding-left: 10px;">
     <img id="city-image" src="Delhi.jpg" alt="Delhi" width="100" height="100" onclick="selectImage()">
