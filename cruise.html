@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
- 
 <body>
-    <h1 style="background-color: rgb(247, 219, 125);">Sai Krishna Koduri goes on a cruise</h1>
+    <h1>Sai Krishna Koduri goes on a cruise</h1>
     <form>
         <label for="shares-cabin">
             <input type ="checkbox" id="shares-cabin" value="True"> Shares Cabin
@@ -16,7 +15,7 @@
             <input type ="checkbox" id="pool-pass" value="False"> Pool Pass
         </label>
         <br><br>
-        <button class="btn btn-primary" type="button" class = "btn btn-secondary" onclick="selectCruise()">Select a Cruise</button>
+        <button type="button" onclick="selectCruise()">Select a Cruise</button>
     </form><br><br>
     <form>
         <label for="days">Enter the number of days: </label>
@@ -26,7 +25,7 @@
         <label for="price">Enter price: </label>
         <input type ="text" id="price">
         <br><br>
-        <input class="btn btn-success" type="button" onclick="updateCruise()" value="Update the Cruise">
+        <input type="button" onclick="updateCruise()" value="Update the Cruise">
     </form>
     <p id="result"></p>
     <script>
