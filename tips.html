@@ -1,24 +1,45 @@
 <!DOCTYPE html>
-<html>
- 
+<html> 
 <body>
-    <h1 style="background-color: rgb(203, 245, 113);">Tip amounts</h1>
-    <label for = "min-tip">Enter base amount: </label>
-    <input type = "number" id="min-tip" value="50"><br><br>
-    <label for ="tip-percent">Enter the tip percent: </label>
-    <input type="number" id="tip-percent" value="15"><br><br>
-    <button class="btn btn-success" onclick="tips()">Show tip</button><br><br>
-    <div id="result"></div> 
+    <h1>Sai Krishna Koduri tip amounts</h1>
+    <form>
+        <label for="min">Enter base amount</label>
+        <input type="number" id="min" name="min" value=50> <br>
+        <label for="tip">Enter the tip percent</label>
+        <input type="number" id="tip" name="tip" value="15"> <br>
+        <input type="button" onclick="tips()" value="Show tip">
+    </form>
+    <p id="result"></p>
+    <form>
+        <input onclick="chooseOp()" type="radio" id="add" name="radio" value="sum" >
+        <label for="add">sum</label></br>
+        <input onclick="chooseOp()" type="radio" id="diff" name="radio" value="difference">
+        <label for="diff">diff</label></br>
+        <input onclick="chooseOp()" type="radio" id="mult" name="radio" value="product">
+        <label for="mult">mult</label></br>
+    </form>
+    <p id="resultRadio"></p>
     <script>
         function tips(){
-            const minAmt = parseInt(document.getElementById("min-tip").value);
-            const tipPrcnt = parseInt(document.getElementById("tip-percent").value);
-            let toShow = "Tips are: ";
-            for(let i=0; i<5; i++){
-                const calcTip = (minAmt * (tipPrcnt + i *4))/100;
-                toShow += `${tipPrcnt + i * 4}% is ${calcTip.toFixed(2)}; `;
-            }
-            document.getElementById("result").innerHTML = toShow;
+        var minValue=parseInt(document.getElementById("min").value);
+        var tipPrcnt=parseInt(document.getElementById("tip").value);
+        var myOutput=0;
+        var toShow="";
+        for(var i=0;i<5;i++){        
+            myOutput=(minValue*(tipPrcnt+i*4))/100;
+            toShow+=(tipPrcnt+i*4)+"% is "+myOutput.toFixed(2)+"; ";
+        }
+        document.getElementById("result").innerHTML="Tip are: "+toShow;
+        }
+        function chooseOp() {
+            var minV = parseInt(document.getElementById("min").value);
+            var tipV = parseInt(document.getElementById("tip").value);
+            if (document.getElementById("add").checked)
+                document.getElementById("resultRadio").innerHTML = "Sum of " + minV + " and " + tipV + " is " + (minV + tipV);
+            else if (document.getElementById("diff").checked)
+                document.getElementById("resultRadio").innerHTML = "difference of " + minV + " and " + tipV + " is " + (minV - tipV);
+            else
+                document.getElementById("resultRadio").innerHTML = "Product of " + minV + " and " + tipV + " is " + (minV * tipV);
         }
     </script>
 </body>
